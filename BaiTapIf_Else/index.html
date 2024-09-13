@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BaiTapJS</title>
+    <style>
+      body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #f0f4f8;
+        margin: 0;
+        padding: 20px;
+        text-align: center;
+      }
+
+      h1 {
+        font-size: 24px;
+        color: #1890ff;
+        margin-bottom: 20px;
+      }
+
+      h2 {
+        font-size: 20px;
+        color: #1890ff;
+        margin-top: 40px;
+      }
+
+      label {
+        font-size: 18px;
+        color: #333;
+        display: block;
+        margin-bottom: 10px;
+      }
+
+      input {
+        padding: 10px;
+        width: 300px;
+        margin-bottom: 15px;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        font-size: 16px;
+      }
+
+      button {
+        padding: 10px 20px;
+        background-color: #1890ff;
+        color: white;
+        border: none;
+        border-radius: 8px;
+        font-size: 16px;
+        cursor: pointer;
+        margin-bottom: 20px;
+      }
+
+      button:hover {
+        background-color: #40a9ff;
+      }
+
+      p {
+        font-size: 16px;
+        color: #52c41a;
+        background-color: #e6fffb;
+        padding: 10px;
+        border-radius: 8px;
+        margin-bottom: 20px;
+        display: inline-block;
+        width: 300px;
+      }
+
+      hr {
+        border: none;
+        border-top: 1px solid #ccc;
+        margin: 40px 0;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Kiểm tra Số Dương</h1>
+    <label for="numberInput">Nhập một số:</label>
+    <input type="number" id="numberInput" />
+    <button onclick="checkNumber()">Kiểm tra</button>
+    <p id="pThongBaoCheckNumber"></p>
+
+    <hr />
+
+    <h1>Kiểm tra Tuổi Vào Lớp 1</h1>
+    <label for="ageInput">Nhập tuổi của học sinh:</label>
+    <input type="number" id="ageInput" />
+    <button onclick="checkAge()">Kiểm tra</button>
+    <p id="pThongBaoTuoiHS"></p>
+
+    <hr />
+
+    <h1>Kiểm tra Số Chẵn</h1>
+    <label for="evenNumberInput">Nhập một số:</label>
+    <input type="number" id="evenNumberInput" />
+    <button onclick="checkEvenNumber()">Kiểm tra</button>
+    <p id="pThongBaoChanLe"></p>
+
+    <hr />
+
+    <h1>Kiểm tra tuổi lái xe</h1>
+    <label for="number_3">Vui lòng nhập số tuổi:</label>
+    <input id="number_3" type="number" />
+    <button onclick="kiemTraTuoiLaiXe()">Kiểm tra số tuổi lái xe</button>
+    <p id="pThongBaoTuoiLaiXe"></p>
+
+    <hr />
+
+    <h1>Xét Thưởng Nhân Viên</h1>
+    <label for="number_4">Nhập số sản phẩm bán được:</label>
+    <input id="number_4" type="number" />
+    <button onclick="checkSale()">Xét Thưởng</button>
+    <p id="pThongBaoThuongNV"></p>
+
+    <hr />
+
+    <h1>Tính Chiết Khấu</h1>
+    <label for="purchaseAmountInput">Nhập số tiền mua hàng (USD):</label>
+    <input id="purchaseAmountInput" type="number" />
+    <button onclick="calculateDiscount()">Tính Chiết Khấu</button>
+    <p id="pThongBaoChietKhau"></p>
+
+    <hr />
+
+    <h2>Kiểm Tra Mật Khẩu</h2>
+    <label for="passwordInput">Nhập mật khẩu:</label>
+    <input id="passwordInput" type="password" />
+    <button onclick="checkPassword()">Kiểm tra</button>
+    <p id="passwordResult"></p>
+
+    <script src="./main.js"></script>
+  </body>
+</html>

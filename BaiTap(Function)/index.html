@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #f0f4f8;
+        text-align: center;
+        padding: 20px;
+      }
+
+      .container {
+        max-width: 500px;
+        margin: 0 auto;
+        background-color: white;
+        padding: 20px;
+        border-radius: 12px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        text-align: left;
+      }
+
+      h2 {
+        text-align: center;
+        color: #ff4d4f;
+        font-size: 24px;
+      }
+
+      label {
+        font-weight: 500;
+        margin-top: 10px;
+        display: block;
+        font-size: 16px;
+      }
+
+      input {
+        width: 100%;
+        padding: 10px;
+        margin: 5px 0 15px;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        font-size: 16px;
+      }
+
+      button {
+        width: 100%;
+        padding: 12px;
+        background-color: #1890ff;
+        color: white;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        font-size: 16px;
+        margin-top: 10px;
+      }
+
+      button:hover {
+        background-color: #40a9ff;
+      }
+
+      .result {
+        background-color: #e6fffb;
+        padding: 10px;
+        margin-top: 10px;
+        border-radius: 8px;
+        font-size: 16px;
+        color: #52c41a;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h2>Quản Lý Tuyển Sinh</h2>
+      <form id="formTuyenSinh">
+        <label for="diemMon1">Điểm môn thứ 1:</label>
+        <input type="number" id="diemMon1" name="diemMon1" /><br />
+
+        <label for="diemMon2">Điểm môn thứ 2:</label>
+        <input type="number" id="diemMon2" name="diemMon2" /><br />
+
+        <label for="diemMon3">Điểm môn thứ 3:</label>
+        <input type="number" id="diemMon3" name="diemMon3" /><br />
+
+        <label for="hienThiTongDiem">Tổng điểm 3 môn:</label>
+        <span id="hienThiTongDiem">0</span><br />
+
+        <label for="diemChuan">Điểm chuẩn:</label>
+        <input type="number" id="diemChuan" name="diemChuan" /><br />
+
+        <label for="khuVuc"
+          >Khu vực (A, B, C hoặc X nếu không thuộc khu vực):</label
+        >
+        <input type="text" id="khuVuc" name="khuVuc" /><br />
+
+        <label for="doiTuongUuTien"
+          >Đối tượng (1, 2, 3 hoặc 0 nếu không thuộc đối tượng ưu tiên):</label
+        >
+        <input
+          type="number"
+          id="doiTuongUuTien"
+          name="doiTuongUuTien"
+        /><br />
+
+        <button type="button" onclick="kiemTraTuyenSinh()">
+          Kết Quả
+        </button>
+      </form>
+      <div class="result" id="thongBaoTuyenSinh"></div>
+
+      <hr />
+
+      <h2>Tính Tiền Điện</h2>
+      <form id="electricityForm">
+        <label for="name">Tên khách hàng:</label>
+        <input type="text" id="nameTienDien" name="name" /><br />
+
+        <label for="kw">Số Kw tiêu thụ:</label>
+        <input type="number" id="kw" name="kw" /><br />
+
+        <button type="button" onclick="calculateElectricity()">
+          Tính tiền
+        </button>
+      </form>
+      <div class="result" id="pThongBaoTienDien"></div>
+
+      <hr />
+
+      <h2>Tính Thuế Thu Nhập Cá Nhân</h2>
+      <form>
+        <label for="hoTen">Họ tên:</label>
+        <input type="text" id="hoTen" placeholder="Nhập họ tên" />
+
+        <label for="tongThuNhap">Tổng thu nhập năm (VND):</label>
+        <input
+          type="number"
+          id="tongThuNhap"
+          placeholder="Nhập tổng thu nhập năm"
+        />
+
+        <label for="soNguoiPhuThuoc">Số người phụ thuộc:</label>
+        <input
+          type="number"
+          id="soNguoiPhuThuoc"
+          placeholder="Nhập số người phụ thuộc"
+        />
+
+        <button type="button" onclick="tinhThue()">Tính tiền thuế</button>
+      </form>
+      <div class="result" id="ketQua"></div>
+
+      <hr />
+
+      <h2>TÍNH TIỀN CÁP</h2>
+      <form id="formHoaDon">
+        <label for="loaiKhachHang">Loại khách hàng:</label>
+        <select id="loaiKhachHang" onchange="thayDoiKetNoi()">
+          <option value="nhaDan">Nhà dân</option>
+          <option value="doanhNghiep">Doanh nghiệp</option></select
+        ><br />
+
+        <div id="divKetNoi">
+          <label for="soKetNoi">Số kết nối:</label>
+          <input type="number" id="soKetNoi" min="0" /><br />
+        </div>
+
+        <label for="soKenhCaoCap">Số kênh cao cấp:</label>
+        <input type="number" id="soKenhCaoCap" min="0" /><br />
+
+        <button type="button" onclick="tinhHoaDon()">Tính hóa đơn</button>
+      </form>
+      <h2>Tổng hóa đơn: $<span id="tongHoaDon">0.00</span></h2>
+    </div>
+
+    <script src="./index.js"></script>
+  </body>
+</html>
